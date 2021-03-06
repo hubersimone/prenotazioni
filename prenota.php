@@ -18,8 +18,8 @@ $dsn = 'mysql:host' . $host . 'dbname=' . $db;
 $pdo = new PDO($dsn, $user, $pass);
 
 //Variabili al momento costanto poi verranno prese tramite POST
-$codice_fiscale = 'HUSBRT30T999DR54';
-$giorno='2021-03-06';
+$codice_fiscale = $_POST['codice'];
+$giorno= $_POST['giorno'];
 
 //Query di iserimento preparata
 $sql = "INSERT INTO prenotazioni VALUES(null, :cod_fiscale, :giorno)"; // :cod_fiscale :giorno sono dei segnaposti che andranno riempiti
