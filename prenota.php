@@ -37,5 +37,5 @@ $stmt -> execute(
 echo "Inserimento riuscito";
 
 //Ridirige il browser verso la pagina indicata nella location
-header('Location : lista_prenotazioni.php');
+header('Location:lista_prenotazioni.php');
 exit(0);
