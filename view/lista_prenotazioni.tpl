@@ -8,12 +8,17 @@
 <body>
     <h1>Portale Prenotazioni</h1>
     <h2>Lista delle prenotazioni</h2>
-    <ul>
+    <table>
+        <tr>
+            <td><strong>Codice Fiscale</strong></td>
+            <td><strong>Data prenotazione</strong></td>
+        </tr>
         <?php foreach($result as $row): ?>
-        <li>  <strong><?php echo $row['codice_fiscale'] ?></strong> Data del tampone prenotato:
-              <?php echo $row['giorno'] ?>
-        </li>
+            <tr>
+                <td> <?php echo $row['codice_fiscale'] ?> </td>
+                <td> <?php echo $row['giorno'] ?> </td>
+            </tr>
         <?php endforeach ?>
-    </ul>
+    </table>
 </body>
 </html>
