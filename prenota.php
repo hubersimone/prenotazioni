@@ -13,12 +13,13 @@ $templates = new Engine('./view','tpl');
 $codice_fiscale = $_POST ['codice'] ;
 $giorno = $_POST['giorno'];
 
+$massimo_prenotazioni_per_giorno=5;
 
 $sql = "SELECT COUNT(*) AS numero FROM prenotazioni WHERE giorno = '$giorno'";
 $stmt = $pdo->query($sql);
 $result = $stmt ->fetchAll();
 
-if($result[0]['numero'] >= 5){
+if($result[0]['numero'] >= $massimo_prenotazioni_per_giorno){
     echo $templates ->render('massimo_prenotazioni_raggiunto',['result' => $result]);
 }else {
 
