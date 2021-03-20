@@ -1,7 +1,13 @@
 
 <?php
 
+require 'vendor/autoload.php';
 include_once("config.php");
+
+use League\Plates\Engine;
+
+//Viene creato l'oggetto per la gestione dei template
+$templates = new Engine('./view','tpl');
 
 //Variabili valorizzate tramite POST
 $codice_fiscale = $_POST ['codice'] ;
@@ -13,7 +19,7 @@ $stmt = $pdo->query($sql);
 $result = $stmt ->fetchAll();
 
 if($result[0]['numero'] >= 5){
-    echo 'Inserimento non riuscito, numero di prenotazioni massime già raggiunto per il giorno '.$giorno;
+    echo $templates ->render('massimo_prenotazioni_raggiunto',['result' => $result]);
 }else {
 
 
