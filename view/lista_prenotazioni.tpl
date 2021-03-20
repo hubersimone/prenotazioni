@@ -10,8 +10,8 @@
     <h2>Lista delle prenotazioni</h2>
     <table>
         <tr>
-            <td><strong>Codice Fiscale</strong></td>
-            <td><strong>Data prenotazione</strong></td>
+            <th>Codice Fiscale</th>
+            <th>Data prenotazione</th>
         </tr>
         <?php foreach($result as $row): ?>
             <tr>
