@@ -6,9 +6,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css">
 </head>
 <body>
-
-<h1>Portale Prenotazioni</h1>
-<h2>Siamo spiacenti, il numero massimo di prenotazioni per il giorno: <?php echo $giorno ?> è già stato raggiunto</h2>
-
+<h1>Prenotazione effettuata</h1>
+<p>
+    Il codice per la tua prenotazione è <mark><?=$codice_univoco?></mark>
+</p>
+<img src="genera_qrcode.php?codice=<?php echo $codice_univoco ?>">
 </body>
 </html>

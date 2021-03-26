@@ -4,6 +4,9 @@
 //Creare un file config.php e inserire le seguenti righe
 //adattandole alla propria configurazione.
 
+//Variabili dell'applicazione
+$LUNGHEZZA_CODICE = 10;
+
 //Utilizzo questo file che andrà in git come esempio a differenza
 //del file config.php con i dati veri e che devono rimanere privati
 
