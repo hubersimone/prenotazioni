@@ -26,8 +26,10 @@ CREATE TABLE `prenotazioni` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `codice_fiscale` varchar(16) NOT NULL,
   `giorno` date NOT NULL,
+  `codice_univoco` varchar(45) NOT NULL,
+  `eseguito` tinyint(1) NOT NULL DEFAULT '0',
+  `note` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
--- Dump completed on 2021-03-14 14:55:45
