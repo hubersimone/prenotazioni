@@ -23,7 +23,7 @@ $codice_univoco = crea_codice($LUNGHEZZA_CODICE);
 
 $massimo_prenotazioni_per_giorno=5;
 
-$sql = "SELECT COUNT(*) AS numero, giorno FROM prenotazioni WHERE giorno = '$giorno'";
+$sql = "SELECT COUNT(*) AS numero, giorno FROM prenotazioni WHERE giorno = '$giorno' AND annullato=false";
 $stmt = $pdo->query($sql);
 $result = $stmt ->fetchAll();
 
@@ -33,7 +33,7 @@ if($result[0]['numero'] >= $massimo_prenotazioni_per_giorno){
 
 
 //Query di inserimento preparate
-    $sql = "INSERT INTO prenotazioni VALUES(null, :codice_fiscale, :giorno, :codice_univoco)";
+    $sql = "INSERT INTO prenotazioni VALUES(null, :codice_fiscale, :giorno, :codice_univoco, false, null, false)";
 
 //Inviamo la query al db che la tiene in pancia
     $stmt = $pdo->prepare($sql);
