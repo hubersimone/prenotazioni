@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Prenotazioni</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css">
-</head>
-<body>
+<?php $this->layout('main',['argomento' => 'Data non disponibile']); ?>
 
-<h1>Portale Prenotazioni</h1>
 <h2>Siamo spiacenti, il numero massimo di prenotazioni per il giorno: <?php echo $giorno ?> è già stato raggiunto</h2>
-
-</body>
-</html>
+<h3>Prova a <a href="prenota.html">prenotare un'altra data.</a></h3>
