@@ -18,5 +18,19 @@ $stmt = $pdo->query($sql);
 $result = $stmt->fetchAll();
 
 
-//Rendo un template che mi visulaizza la tabella
-echo $templates ->render('lista_prenotazioni',['result' => $result]);
+//Se sei una persona che ha fatto il login
+if (isset($_SESSION['username']))
+{
+    $username = $_SESSION['username'];
+
+    //Rendo un template che mi visualizza la tabella
+    echo $templates->render('lista_prenotazioni',
+        [
+            'result' => $result,
+            'username' => $username
+        ]
+
+    );
+}
+else
+    echo $templates->render('utente_non_autorizzato');
