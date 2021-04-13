@@ -13,13 +13,22 @@ $templates = new Engine('./view', 'tpl');
 //Variabili valorizzate tramite POST
 $username = $_POST ['username'];
 $password = $_POST['password'];
-$conferma_password =['conferma_password'];
+$conferma_password = $_POST['conferma_password'];
 
 
-/*
+
 $sql = 'SELECT COUNT(*) as numero FROM utenti WHERE :username = any(SELECT username FROM utenti)';
-$stmt = $pdo->query($sql);
+$stmt = $pdo->prepare($sql);
+
+$stmt->execute(
+    [
+        'username' => $username,
+    ]
+);
+
 $result = $stmt ->fetchAll();
+
+
 
 if($result[0]['numero'] >= 1){
     echo $templates->render('utente_gia_esistente',
@@ -27,14 +36,11 @@ if($result[0]['numero'] >= 1){
             'username' => $username,
             'password' => $password
         ]);
-}
-
-if($password == $conferma_password) {
-*/
+}else if ($password == $conferma_password) {
 
 $hash = password_hash($password,PASSWORD_DEFAULT);
 //Query di inserimento preparate
-    $sql = "INSERT INTO utenti VALUES(null, :username, '$hash')";
+    $sql = "INSERT INTO utenti VALUES(null, :username, :password)";
 
 //Inviamo la query al db che la tiene in pancia
     $stmt = $pdo->prepare($sql);
@@ -53,7 +59,7 @@ $hash = password_hash($password,PASSWORD_DEFAULT);
             'username' => $username,
             'password' => $password
         ]);
-/*
+
 }else {
     echo $templates->render('registrazione_fallita',
         [
@@ -61,4 +67,4 @@ $hash = password_hash($password,PASSWORD_DEFAULT);
             'password' => $password
         ]);
 }
-*/
+
